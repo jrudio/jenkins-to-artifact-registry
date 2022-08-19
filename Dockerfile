@@ -9,7 +9,8 @@ RUN apt-get clean && \
   wget \
   telnet \
   iputils-ping \
-  unzip
+  unzip \
+  google-cloud-sdk
 
 RUN   mkdir /jmeter \
   && cd /jmeter/ \
