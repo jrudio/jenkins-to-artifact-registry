@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh 'echo test'
+                withCredentials([file(credentialsId: 'fake-jenkins-sa', variable: 'GC_KEY')]) {
+                  sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
+                  sh("gcloud config get-value account")
+                }
             }
         }
     }
