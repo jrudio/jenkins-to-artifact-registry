@@ -7,6 +7,7 @@ RUN apt-get clean && \
   apt-get update && \
   apt-get -qy install \
   wget \
+  curl \
   telnet \
   iputils-ping \
   unzip \
@@ -17,7 +18,7 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 
 
-RUN sudo apt-get update && sudo apt-get install google-cloud-cli
+RUN apt-get update && apt-get install google-cloud-cli
 
 RUN   mkdir /jmeter \
   && cd /jmeter/ \
